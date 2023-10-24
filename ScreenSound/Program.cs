@@ -42,24 +42,33 @@ void ExibirOpcoesDoMenu()
     switch (opcaoEscolhidaNumerica)
     {
         case 1:
-            RegistrarBanda();
+            MenuRegistrarBanda menu1 = new();
+            menu1.Executar(bandasRegistradas);
+            ExibirOpcoesDoMenu();
             break;
         case 2:
-            RegistrarAlbum();
+            MenuRegistrarAlbum menu2 = new();
+            menu2.Executar(bandasRegistradas);
+            ExibirOpcoesDoMenu();
             break;
         case 3:
-            MostrarBandasRegistradas();
+            MenuMostrarBandas menu3 = new();
+            menu3.Executar(bandasRegistradas);
+            ExibirOpcoesDoMenu();
             break;
         case 4:
-            AvaliarUmaBanda();
+            MenuAvaliarBanda menu4 = new();
+            menu4.Executar(bandasRegistradas);
+            ExibirOpcoesDoMenu();
             break;
         case 5:
-            MenuExibirDetalhes menu = new MenuExibirDetalhes();
-            menu.Executar(bandasRegistradas);
+            MenuExibirDetalhes menu5 = new MenuExibirDetalhes();
+            menu5.Executar(bandasRegistradas);
             ExibirOpcoesDoMenu();
             break;
         case -1:
-            Console.WriteLine("Tchau tchau :)");
+            MenuSair menuSair = new();
+            menuSair.Executar(bandasRegistradas);
             break;
         default:
             Console.WriteLine("Opção inválida");
@@ -131,34 +140,6 @@ void ExibirTituloDaOpcao(string titulo)
     Console.WriteLine(asteriscos);
     Console.WriteLine(titulo);
     Console.WriteLine(asteriscos + "\n");
-}
-
-void AvaliarUmaBanda()
-{
-    Console.Clear();
-    ExibirTituloDaOpcao("Avaliar banda");
-    Console.Write("Digite o nome da banda que deseja avaliar: ");
-    string nomeDaBanda = Console.ReadLine()!;
-    if (bandasRegistradas.ContainsKey(nomeDaBanda))
-    {
-        Banda banda = bandasRegistradas[nomeDaBanda];
-        Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
-        Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
-        banda.AdicionarNota(nota);
-        Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nomeDaBanda}");
-        Thread.Sleep(2000);
-        Console.Clear();
-        ExibirOpcoesDoMenu();
-    }
-    else
-    {
-        Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
-        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
-        Console.Clear();
-        ExibirOpcoesDoMenu();
-    }
-
 }
 
 
