@@ -1,0 +1,2 @@
+# Projeto-Musical Parte 3
+Nesta fase do Projeto de estudo foi possivel aprofundar meus conhecimentos de Orientação a Objetos, aprendendo sobre métodos estáticos, herança e interface. Além disso, pude refletiu sobre boas práticas, organizando o código através de namespaces e pastas de projeto. Por fim, também descobri como integrar meu projeto a uma biblioteca de terceiros para ajudar a obter mais informações sobre bandas, exibindo-as no ScreenSound!
